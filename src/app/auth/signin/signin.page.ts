@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
+  loading = false;
   login: {
     email: string;
     password: string;
@@ -24,6 +25,8 @@ export class SigninPage implements OnInit {
   }
 
   signIn() {
-    this.auth.authSignIn(this.login);
+    this.loading = true;
+    this.auth.authSignIn(this.login)
+      .finally(() => this.loading = false);
   }
 }
