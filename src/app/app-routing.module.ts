@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedIn },
-  },
+  }
 ];
 
 @NgModule({
